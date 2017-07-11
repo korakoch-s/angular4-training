@@ -6,8 +6,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './features/home/home.component';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { CollapseModule } from 'ngx-bootstrap/collapse';
+// import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { CollapseModule } from 'ngx-bootstrap';
 import { DefaultComponent } from './features/default/default.component';
+import { MainMenuComponent } from './features/main-menu/main-menu.component';
 
 export const appRoutes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full'},
@@ -19,7 +21,8 @@ export const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    DefaultComponent
+    DefaultComponent,
+    MainMenuComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
