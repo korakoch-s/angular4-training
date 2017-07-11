@@ -11,8 +11,12 @@ import { CollapseModule } from 'ngx-bootstrap';
 import { DefaultComponent } from './features/default/default.component';
 import { MainMenuComponent } from './features/main-menu/main-menu.component';
 
+import { UserService } from './user/user.service';
+import { MessagesService } from './message/message.service';
+import { ThreadsService } from './thread/thread.service';
+
 export const appRoutes: Routes = [
-  { path: '', redirectTo: 'default', pathMatch: 'full'},
+  { path: '', redirectTo: 'default', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'default', component: DefaultComponent }
 ]
@@ -22,7 +26,10 @@ export const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     DefaultComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    UserService,
+    MessagesService,
+    ThreadsService
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -30,7 +37,12 @@ export const appRoutes: Routes = [
     CollapseModule.forRoot(),
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    UserService,
+    MessagesService,
+    ThreadsService
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
