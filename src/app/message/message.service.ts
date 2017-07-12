@@ -56,7 +56,7 @@ export class MessagesService {
     this.newMessage.next(message);
   }
 
-  messageForThreadUser(thread: Thread, user: User): Observable<Message> {
+  messagesForThreadUser(thread: Thread, user: User): Observable<Message> {
     return this.newMessage
       .filter((message: Message) => {
         return (message.thread.id === thread.id) &&

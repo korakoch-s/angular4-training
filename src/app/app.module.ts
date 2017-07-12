@@ -3,39 +3,34 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './features/home/home.component';
-
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-// import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { CollapseModule } from 'ngx-bootstrap';
-import { DefaultComponent } from './features/default/default.component';
-import { MainMenuComponent } from './features/main-menu/main-menu.component';
 
 import { UserService } from './user/user.service';
 import { MessagesService } from './message/message.service';
 import { ThreadsService } from './thread/thread.service';
+import { ChatThreadsComponent } from './chat-threads/chat-threads.component';
+import { ChatThreadComponent } from './chat-thread/chat-thread.component';
+import { ChatWindowComponent } from './chat-window/chat-window.component';
+import { ChatMessageComponent } from './chat-message/chat-message.component';
+import { FromNowPipe } from './pipes/from-now.pipe';
+import { ChatNavBarComponent } from './chat-nav-bar/chat-nav-bar.component';
+import { FormsModule } from '@angular/forms';
+import { ChatPageComponent } from './chat-page/chat-page.component';
 
-export const appRoutes: Routes = [
-  { path: '', redirectTo: 'default', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'default', component: DefaultComponent }
-]
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    DefaultComponent,
-    MainMenuComponent,
-    UserService,
-    MessagesService,
-    ThreadsService
+    ChatThreadsComponent,
+    ChatThreadComponent,
+    ChatWindowComponent,
+    ChatMessageComponent,
+    FromNowPipe,
+    ChatNavBarComponent,
+    ChatPageComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
-    BsDropdownModule.forRoot(),
-    CollapseModule.forRoot(),
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [
     UserService,

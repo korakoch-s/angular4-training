@@ -8,7 +8,7 @@ export class UserService {
 
   constructor() { }
 
-  public setCurrentUthis(newUser): void {
+  public setCurrentUser(newUser): void {
     this.currentUser.next(newUser);
   }
 
