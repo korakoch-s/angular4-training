@@ -1,0 +1,94 @@
+<h3>Null vs Undefined</h3>
+<p>
+    (null === undefined) ==> {{ null === undefined }}
+</p>
+<p>
+    (null == undefined) ==> {{ null == undefined }}
+</p>
+<p>
+    (null === null) ==> {{ null === null }}
+</p>
+<p>
+    (undefined === undefined) ==> {{ undefined === undefined }}
+</p>
+<hr>
+<h3>Object vs Undefined</h3>
+<p>
+    var testVar1; ==> {{ testVar11 }}
+</p>
+<p>
+    var testVar2 = null; ==> {{ testVar22 }}
+</p>
+<hr>
+<h3>Number</h3>
+<p>
+    0.1 + 0.2 = {{ 0.1 + 0.2 }}
+</p>
+<p>
+    parseInt('hello', 10); ==> {{ testVar3 }}
+</p>
+<p>
+    parseInt('350.123', 10); ==> {{ testVar4 }}
+</p>
+<p>
+    1 / 0; ==> {{ 1/0 }}
+</p>
+<p>
+    -1 / 0; ==> {{ -1/0 }}
+</p>
+<p>
+    isFinite(1 / 0); ==> {{ testVar5 }}
+</p>
+<p>
+    isNaN(1 / 0); ==> {{ testVar6 }}
+</p>
+<hr>
+<h3>Variable Declration</h3>
+<p>
+    <button class="btn btn-default" (click)="testFuncVar()" popover="Open developer tool (console log) to see result." triggers="mouseenter:mouseleave">Test var Declare</button>
+    <button class="btn btn-default" (click)="testFuncLet()" popover="error since compile code, try to disable code comment." triggers="mouseenter:mouseleave">Test let Declare</button>
+</p>
+<hr>
+<h3>Operation</h3>
+<p>
+    '3' + 4 + 5; ==> {{ '3' + 4 + 5 }}
+</p>
+<p>
+    3 + 4 + '5'; ==> {{ 3 + 4 + '5' }}
+</p>
+<p>1 &lt;&lt; 3 = {{ testVar7.toString(2) }}[binary] = {{ testVar7 }} </p>
+<p>
+    123 == '123'; ==> {{ 123 == '123' }}
+</p>
+<p>
+    123 === '123'; ==> {{ 123 === '123' }}
+</p>
+<hr>
+<h3>Control Structure</h3>
+<p>
+    Open source code and have a look.
+    <button class="btn btn-default" (click)="introControlStructure()" popover="Click to see result." triggers="mouseenter:mouseleave">Control Structure</button>
+</p>
+<hr>
+<h3>Object</h3>
+<p>
+    Open source code and have a look.
+    <button class="btn btn-default" (click)="introObject()" popover="Click to see result." triggers="mouseenter:mouseleave">Introduction Object</button>
+</p>
+<hr>
+<h3>Array</h3>
+<p>
+    Open source code and have a look.
+    <button class="btn btn-default" (click)="introArray()" popover="Click to see result." triggers="mouseenter:mouseleave">Introduction Array</button>
+</p>
+<hr>
+<h3>Function</h3>
+<p>
+    Open source code and have a look.
+    <button class="btn btn-default" (click)="introFunction()" popover="Click to see result." triggers="mouseenter:mouseleave">Introduction Function</button>
+</p>
+<h3>Closure</h3>
+<p>
+    Open source code and have a look.
+    <button class="btn btn-default" (click)="introClosure()" popover="Click to see result." triggers="mouseenter:mouseleave">Introduction Closure</button>
+</p>
