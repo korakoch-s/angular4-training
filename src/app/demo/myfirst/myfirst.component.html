@@ -1,0 +1,10 @@
+<h1>
+    My First Component Works!
+</h1>
+<h4>
+    This component start at {{startTime | amCalendar}}
+</h4>
+<p>
+    <button class="btn btn-default" (click)="updateStartTime()">Update Start Time</button>
+</p>
+<app-second inputVal="Input from master" [customVal]="anotherVal" (onValueOut)="secondValueOut($event)"></app-second>

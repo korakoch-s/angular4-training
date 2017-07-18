@@ -1,0 +1,23 @@
+<div>
+    <h3>This is second component</h3>
+    <p>
+        inputVal = {{ inputVal }}
+    </p>
+    <p>
+        anotherInput = {{ anotherInput }}
+    </p>
+    <button class="btn btn-default" (click)="goClick()">Try click me</button>
+    <button class="btn btn-default" (click)="goClick()" [disabled]="isDisabled">Disable</button>
+    <div [ngClass]="classes">[ngClass] binding to the classes property
+        <button class="btn btn-default" (click)="toggleClasses()">Toggle</button>
+    </div>
+    <div [class.special]="isSpecial">[ngClass] binding to the class special
+        <button class="btn btn-default" (click)="toggleSpecial()">Toggle</button>
+    </div>
+    <div>
+        <input [(ngModel)]="twoWayVal">
+        <p>
+            Value from two-way binding: <span class="special"> {{ twoWayVal }}</span>
+        </p>
+    </div>
+</div>
