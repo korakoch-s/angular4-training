@@ -1,3 +1,24 @@
-<p>
-  directive works!
-</p>
+<h2>Angular Directive Demos</h2>
+<button class="btn btn-default" (click)="setDatas()">Create Demo Datas</button>
+<button class="btn btn-default" (click)="appendDatas()">Append Demo Datas</button>
+<button class="btn btn-default" (click)="clearDatas()">Clear Demo Datas</button>
+<div *ngIf="datas">
+    <table style="width: 80%">
+        <tr>
+            <td></td>
+            <td>Name</td>
+            <td>Group</td>
+            <td>Rank</td>
+        </tr>
+        <tr *ngFor="let item of datas; let i = index">
+            <td>{{ i+1 }}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.group}}</td>
+            <td>{{item.rank}}</td>
+        </tr>
+    </table>
+</div>
+<div appMyHighlight>This is hightlight by custom directive</div>
+<div *appMyUnless="datas">
+    demo of custom structural directive. It work in opposit of *ngIf.
+</div>

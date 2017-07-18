@@ -14,6 +14,8 @@ import { TsIntroComponent } from './demo/ts-intro/ts-intro.component';
 import { MyfirstComponent } from './demo/myfirst/myfirst.component';
 import { SecondComponent } from './demo/second/second.component';
 import { DirectiveComponent } from './demo/directive/directive.component';
+import { MyHighlightDirective } from './demo/directive/my-highlight.directive';
+import { MyUnlessDirective } from './demo/directive/my-unless.directive';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -38,7 +40,9 @@ const routes: Routes = [
     TsIntroComponent,
     MyfirstComponent,
     SecondComponent,
-    DirectiveComponent
+    DirectiveComponent,
+    MyHighlightDirective,
+    MyUnlessDirective
   ],
   imports: [
     BrowserModule,
