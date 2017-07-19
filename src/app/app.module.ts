@@ -1,7 +1,7 @@
-import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { MomentModule } from 'angular2-moment';
@@ -16,6 +16,7 @@ import { SecondComponent } from './demo/second/second.component';
 import { DirectiveComponent } from './demo/directive/directive.component';
 import { MyHighlightDirective } from './demo/directive/my-highlight.directive';
 import { MyUnlessDirective } from './demo/directive/my-unless.directive';
+import { FormComponent } from './demo/form/form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -25,7 +26,8 @@ const routes: Routes = [
       { path: 'js-reintro', component: JsReintroComponent },
       { path: 'ts-intro', component: TsIntroComponent },
       { path: 'ng-component', component: MyfirstComponent },
-      { path: 'ng-directive', component: DirectiveComponent }
+      { path: 'ng-directive', component: DirectiveComponent },
+      { path: 'ng-form', component: FormComponent }
     ]
   },
 
@@ -42,14 +44,16 @@ const routes: Routes = [
     SecondComponent,
     DirectiveComponent,
     MyHighlightDirective,
-    MyUnlessDirective
+    MyUnlessDirective,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     PopoverModule.forRoot(),
     MomentModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,16 @@
+.invalid {
+    border: red 1px solid;
+}
+
+input.ng-dirty.ng-invalid {
+    border: 2px solid #ff0000
+}
+
+input.ng-dirty.ng-valid {
+    border: 2px solid #6bc502
+}
+
+small {
+    font-size: 0.65em;
+    color: #666;
+}

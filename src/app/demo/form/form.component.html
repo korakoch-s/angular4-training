@@ -1,0 +1,86 @@
+<h2>
+    Simple Form</h2>
+<form [formGroup]="form">
+    <div formGroupName="name">
+        <input formControlName="first" placeholder="First">
+        <input formControlName="last" placeholder="Last">
+    </div>
+    <input formControlName="email" placeholder="Email">
+    <br><br>
+    <button>Submit</button>
+</form>
+<br>
+<p>Value: {{ form.value | json }}</p>
+<hr>
+
+<h2>Form with Validation</h2>
+<form #profileForm="ngForm" (submit)="onValidateSubmit()" style="width: 500px;">
+    <div class="form-group">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="fname" class="form-control" required minlength="4" maxlength="20" [(ngModel)]="myData.fname" #fname="ngModel">
+        <div *ngIf="fname.errors && (fname.dirty || fname.touched)" class="alert alert-danger">
+            <div [hidden]="!fname.errors.minlength">
+                First name must be at lease 4 charectors long.
+            </div>
+            <div [hidden]="!fname.errors.maxlength">
+                First name must be less than 20 charectors long.
+            </div>
+            <div [hidden]="!fname.errors.required">
+                First name must be required.
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lname" class="form-control" minlength="2" maxlength="20" [(ngModel)]="myData.lname" #lname="ngModel">
+        <div *ngIf="lname.errors && (lname.dirty || lname.touched)" class="alert alert-danger">
+            <div [hidden]="!lname.errors.minlength">
+                Last name must be at lease 2 charectors long.
+            </div>
+            <div [hidden]="!lname.errors.maxlength">
+                Last name must be less than 20 charectors long.
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,6})+$" id="email" name="email" class="form-control" required [(ngModel)]="myData.email" #email="ngModel">
+        <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+            <div [hidden]="!email.errors.required">
+                Email must be required.
+            </div>
+            <div [hidden]="!email.errors.pattern">
+                Email format is not correct.
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!profileForm.form.valid">Submit</button>
+</form>
+<br>
+<p>Value: {{ myData | json }}</p>
+<hr>
+<h2>Reactive Form</h2>
+<form [formGroup]="reactForm" style="width: 500px;">
+    <div class="form-group">
+        <label for="rf-fname">First Name</label>
+        <input type="text" class="form-control" formControlName="fname" id="rf-fname" name="rf-fname">
+        <div *ngIf="reactForm.get('fname').status == 'INVALID' && !reactForm.get('fname').untouched" class="alert alert-danger">
+            First name must be required.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="rf-lname">Last Name <small>(*try to type some text with 'koch')</small></label>
+        <input type="text" class="form-control" formControlName="lname" id="rf-lname" name="rf-lname">
+        <div *ngIf="reactForm.get('lname').status == 'INVALID' && !reactForm.get('lname').untouched" class="alert alert-danger">
+            Not allow 'koch' in last name.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="rf-email">Email</label>
+        <input type="text" class="form-control" formControlName="email" id="rf-email" name="rf-email">
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="reactForm.status == 'INVALID'">Submit</button>
+</form>
+<p>Status: {{ reactForm.status | json }}</p>
+<p>Value: {{ reactForm.value | json }}</p>
+<hr>
