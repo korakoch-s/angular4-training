@@ -10,7 +10,7 @@
             <td>Group</td>
             <td>Rank</td>
         </tr>
-        <tr *ngFor="let item of datas; let i = index">
+        <tr *ngFor="let item of datas; let i = index" [appMyHighlight]="item.rank > 15">
             <td>{{ i+1 }}</td>
             <td>{{item.name}}</td>
             <td>{{item.group}}</td>
@@ -18,7 +18,7 @@
         </tr>
     </table>
 </div>
-<div appMyHighlight>This is hightlight by custom directive</div>
+<div appMyHighlight="true">This is hightlight by custom directive (Rank > 15)</div>
 <div *appMyUnless="datas">
     demo of custom structural directive. It work in opposit of *ngIf.
 </div>
