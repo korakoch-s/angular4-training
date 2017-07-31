@@ -30,6 +30,9 @@ import { TimeMomentComponent } from './demo/time-moment/time-moment.component';
 import { HttpComponent } from './demo/http/http.component';
 import { RouteComponent } from './demo/route/route.component';
 import { RouteGuardComponent } from './demo/route-guard/route-guard.component';
+import { RxjsComponent } from './demo/rxjs/rxjs.component';
+import { ReduxComponent } from './demo/redux/redux.component';
+import { AdvanceComponent } from './demo/advance/advance.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -50,7 +53,10 @@ const routes: Routes = [
         path: 'ng-routeguard/:id',
         component: RouteGuardComponent,
         canActivate: [SecureGuard]
-      }
+      },
+      { path: 'ng-rxjs', component: RxjsComponent },
+      { path: 'ng-redux', component: ReduxComponent },
+      { path: 'ng-advance', component: AdvanceComponent }
     ]
   },
 ];
@@ -77,7 +83,10 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     TimeMomentComponent,
     HttpComponent,
     RouteComponent,
-    RouteGuardComponent
+    RouteGuardComponent,
+    RxjsComponent,
+    ReduxComponent,
+    AdvanceComponent
   ],
   imports: [
     BrowserModule,
