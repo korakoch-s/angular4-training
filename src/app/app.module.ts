@@ -9,6 +9,7 @@ import { PopoverModule } from 'ngx-bootstrap/popover';
 import { MomentModule } from 'angular2-moment';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { BsDropdownModule } from 'ngx-bootstrap';
 
 import { SecureService } from './demo/route-guard/secure.service';
 import { SecureGuard } from './demo/route-guard/secure.guard';
@@ -37,6 +38,7 @@ import { AdvanceChildComponent } from './demo/advance-child/advance-child.compon
 import { AdvanceContentProjectionComponent } from './demo/advance-content-projection/advance-content-projection.component';
 import { AdvanceTabsetComponent } from './demo/advance-tabset/advance-tabset.component';
 import { AdvanceTabComponent } from './demo/advance-tab/advance-tab.component';
+import { NgxBootstrapComponent } from './demo/ngx-bootstrap/ngx-bootstrap.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -60,7 +62,8 @@ const routes: Routes = [
       },
       { path: 'ng-rxjs', component: RxjsComponent },
       { path: 'ng-redux', component: ReduxComponent },
-      { path: 'ng-advance', component: AdvanceComponent }
+      { path: 'ng-advance', component: AdvanceComponent },
+      { path: 'ng-bootstrap', component: NgxBootstrapComponent }
     ]
   },
 ];
@@ -94,7 +97,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     AdvanceChildComponent,
     AdvanceContentProjectionComponent,
     AdvanceTabsetComponent,
-    AdvanceTabComponent
+    AdvanceTabComponent,
+    NgxBootstrapComponent
   ],
   imports: [
     BrowserModule,
@@ -111,7 +115,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
         deps: [HttpClient]
       }
     }),
-    HttpModule
+    HttpModule,
+    BsDropdownModule.forRoot()
   ],
   providers: [
     SecureGuard,
