@@ -17,6 +17,7 @@ import { DirectiveComponent } from './demo/directive/directive.component';
 import { MyHighlightDirective } from './demo/directive/my-highlight.directive';
 import { MyUnlessDirective } from './demo/directive/my-unless.directive';
 import { FormComponent } from './demo/form/form.component';
+import { DiComponent } from './demo/di/di.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -27,7 +28,8 @@ const routes: Routes = [
       { path: 'ts-intro', component: TsIntroComponent },
       { path: 'ng-component', component: MyfirstComponent },
       { path: 'ng-directive', component: DirectiveComponent },
-      { path: 'ng-form', component: FormComponent }
+      { path: 'ng-form', component: FormComponent },
+      { path: 'ng-di', component: DiComponent }
     ]
   },
 
@@ -45,7 +47,8 @@ const routes: Routes = [
     DirectiveComponent,
     MyHighlightDirective,
     MyUnlessDirective,
-    FormComponent
+    FormComponent,
+    DiComponent
   ],
   imports: [
     BrowserModule,

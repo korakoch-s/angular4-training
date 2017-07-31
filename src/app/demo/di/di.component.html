@@ -1,0 +1,15 @@
+<p>
+    di works!
+</p>
+<div class="container">
+    <div *ngFor="let mb of members" class="row member-block">
+        <div class="col-md-4">
+            <img [src]='mb.imageProfile + "/" + mb.index' class="img-responsive center-block">
+        </div>
+        <div class="col-md-8">
+            <p>First Name: {{mb.fname}}</p>
+            <p>Last Name: {{mb.lname}}</p>
+            <p>Gender: {{mb.gender}}</p>
+        </div>
+    </div>
+</div>
