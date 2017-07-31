@@ -2,9 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { MomentModule } from 'angular2-moment';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { DemoAppComponent } from './demo-app/demo-app.component';
@@ -18,6 +21,7 @@ import { MyHighlightDirective } from './demo/directive/my-highlight.directive';
 import { MyUnlessDirective } from './demo/directive/my-unless.directive';
 import { FormComponent } from './demo/form/form.component';
 import { DiComponent } from './demo/di/di.component';
+import { TranslateComponent } from './demo/translate/translate.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -29,11 +33,15 @@ const routes: Routes = [
       { path: 'ng-component', component: MyfirstComponent },
       { path: 'ng-directive', component: DirectiveComponent },
       { path: 'ng-form', component: FormComponent },
-      { path: 'ng-di', component: DiComponent }
+      { path: 'ng-di', component: DiComponent },
+      { path: 'ng-translate', component: TranslateComponent}
     ]
   },
-
 ];
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -48,7 +56,8 @@ const routes: Routes = [
     MyHighlightDirective,
     MyUnlessDirective,
     FormComponent,
-    DiComponent
+    DiComponent,
+    TranslateComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +65,15 @@ const routes: Routes = [
     PopoverModule.forRoot(),
     MomentModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
