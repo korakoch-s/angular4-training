@@ -10,6 +10,9 @@ import { MomentModule } from 'angular2-moment';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+import { SecureService } from './demo/route-guard/secure.service';
+import { SecureGuard } from './demo/route-guard/secure.guard';
+
 import { AppComponent } from './app.component';
 import { DemoAppComponent } from './demo-app/demo-app.component';
 import { DefaultComponent } from './default/default.component';
@@ -25,6 +28,8 @@ import { DiComponent } from './demo/di/di.component';
 import { TranslateComponent } from './demo/translate/translate.component';
 import { TimeMomentComponent } from './demo/time-moment/time-moment.component';
 import { HttpComponent } from './demo/http/http.component';
+import { RouteComponent } from './demo/route/route.component';
+import { RouteGuardComponent } from './demo/route-guard/route-guard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -39,7 +44,13 @@ const routes: Routes = [
       { path: 'ng-di', component: DiComponent },
       { path: 'ng-translate', component: TranslateComponent },
       { path: 'ng-moment', component: TimeMomentComponent },
-      { path: 'ng-http', component: HttpComponent }
+      { path: 'ng-http', component: HttpComponent },
+      { path: 'ng-route', component: RouteComponent },
+      {
+        path: 'ng-routeguard/:id',
+        component: RouteGuardComponent,
+        canActivate: [SecureGuard]
+      }
     ]
   },
 ];
@@ -64,7 +75,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     DiComponent,
     TranslateComponent,
     TimeMomentComponent,
-    HttpComponent
+    HttpComponent,
+    RouteComponent,
+    RouteGuardComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +96,10 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     }),
     HttpModule
   ],
-  providers: [],
+  providers: [
+    SecureGuard,
+    SecureService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
