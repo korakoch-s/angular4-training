@@ -1,3 +1,12 @@
-<p>
-    di works!
-</p>
+<h3>Backend URL: {{backendUrl}} <small>(from value injection)</small></h3>
+<div class="input-group">
+    <div class="input-group-addon">Log msg</div>
+    <input type="text" class="form-control" id="logMsg" placeholder="Message">
+</div>
+
+<button type="button" class="btn btn-default" (click)="logClick()">Record Log</button>
+
+<br>
+<ul>
+    <li *ngFor="let item of logMsgs">{{item}}</li>
+</ul>
