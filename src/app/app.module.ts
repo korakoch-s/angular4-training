@@ -22,6 +22,7 @@ import { MyUnlessDirective } from './demo/directive/my-unless.directive';
 import { FormComponent } from './demo/form/form.component';
 import { DiComponent } from './demo/di/di.component';
 import { TranslateComponent } from './demo/translate/translate.component';
+import { TimeMomentComponent } from './demo/time-moment/time-moment.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -34,7 +35,8 @@ const routes: Routes = [
       { path: 'ng-directive', component: DirectiveComponent },
       { path: 'ng-form', component: FormComponent },
       { path: 'ng-di', component: DiComponent },
-      { path: 'ng-translate', component: TranslateComponent}
+      { path: 'ng-translate', component: TranslateComponent },
+      { path: 'ng-moment', component: TimeMomentComponent }
     ]
   },
 ];
@@ -57,7 +59,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     MyUnlessDirective,
     FormComponent,
     DiComponent,
-    TranslateComponent
+    TranslateComponent,
+    TimeMomentComponent
   ],
   imports: [
     BrowserModule,
