@@ -1,0 +1,18 @@
+<h2>Http service demo</h2>
+
+<button type="button" class="btn btn-primary" (click)="loadData()" [disabled]="loading">Load Data</button>
+<button type="button" class="btn btn-warning" (click)="makePost()" [disabled]="loading">Post Data</button>
+
+<div class="progress" *ngIf="loading">
+    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="" aria-valuemin="" aria-valuemax="100" style="width: 50%;">
+        <span class="sr-only"> 50 % Complete</span>
+    </div>
+</div>
+
+<br> Data:
+<p *ngFor="let item of datas">
+    {{item | json}}
+</p>
+<p *ngIf="data">
+    {{data | json}}
+</p>

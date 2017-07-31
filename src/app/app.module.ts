@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { MomentModule } from 'angular2-moment';
@@ -23,6 +24,7 @@ import { FormComponent } from './demo/form/form.component';
 import { DiComponent } from './demo/di/di.component';
 import { TranslateComponent } from './demo/translate/translate.component';
 import { TimeMomentComponent } from './demo/time-moment/time-moment.component';
+import { HttpComponent } from './demo/http/http.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -36,7 +38,8 @@ const routes: Routes = [
       { path: 'ng-form', component: FormComponent },
       { path: 'ng-di', component: DiComponent },
       { path: 'ng-translate', component: TranslateComponent },
-      { path: 'ng-moment', component: TimeMomentComponent }
+      { path: 'ng-moment', component: TimeMomentComponent },
+      { path: 'ng-http', component: HttpComponent }
     ]
   },
 ];
@@ -60,7 +63,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     FormComponent,
     DiComponent,
     TranslateComponent,
-    TimeMomentComponent
+    TimeMomentComponent,
+    HttpComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +80,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
