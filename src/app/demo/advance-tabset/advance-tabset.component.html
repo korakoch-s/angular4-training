@@ -1,0 +1,6 @@
+<ul class="nav nav-tabs" role="tablist">
+    <li *ngFor="let tab of tabs" class="" [class.active]="tab.active" role="presentation">
+        <a href="#" (click)="setActive(tab)" role="tab">{{tab.title}}</a>
+        <li>
+</ul>
+<ng-content></ng-content>

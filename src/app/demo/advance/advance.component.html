@@ -16,3 +16,14 @@
 <div app-advance-content-projection header="My Header Message">
     This is content of my meassge from host element using the content projection directive.
 </div>
+
+<h2>Access neighbor directive (tabs demo)</h2>
+<app-advance-tabset>
+    <app-advance-tab title="First tab">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam magni quia ut harum facilis, ullam deleniti porro dignissimos quasi at molestiae sapiente natus, neque voluptatum ad consequuntur cupiditate nemo sunt.
+    </app-advance-tab>
+    <app-advance-tab *ngFor="let tab of tabs" [title]="tab.title">
+        {{tab.content}}
+    </app-advance-tab>
+
+</app-advance-tabset>

@@ -35,6 +35,8 @@ import { ReduxComponent } from './demo/redux/redux.component';
 import { AdvanceComponent } from './demo/advance/advance.component';
 import { AdvanceChildComponent } from './demo/advance-child/advance-child.component';
 import { AdvanceContentProjectionComponent } from './demo/advance-content-projection/advance-content-projection.component';
+import { AdvanceTabsetComponent } from './demo/advance-tabset/advance-tabset.component';
+import { AdvanceTabComponent } from './demo/advance-tab/advance-tab.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -90,7 +92,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     ReduxComponent,
     AdvanceComponent,
     AdvanceChildComponent,
-    AdvanceContentProjectionComponent
+    AdvanceContentProjectionComponent,
+    AdvanceTabsetComponent,
+    AdvanceTabComponent
   ],
   imports: [
     BrowserModule,
