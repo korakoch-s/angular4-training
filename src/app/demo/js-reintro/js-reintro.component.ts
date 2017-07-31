@@ -21,6 +21,8 @@ export class JsReintroComponent implements OnInit {
 
   testVar7 = (1 << 3);
 
+  tmp123: any = 123;
+
   constructor() { }
 
   ngOnInit() {
