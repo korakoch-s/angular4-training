@@ -1,3 +1,18 @@
-<p>
-  advance works!
-</p>
+<h2>
+    Advance host element.
+</h2>
+
+<div>
+    Child element go below...
+    <app-advance-child></app-advance-child>
+</div>
+<br><br>
+<div class="mytheme">
+    This is host with css .mytheme class
+    <app-advance-child></app-advance-child>
+</div>
+
+<h2>Content Projection</h2>
+<div app-advance-content-projection header="My Header Message">
+    This is content of my meassge from host element using the content projection directive.
+</div>

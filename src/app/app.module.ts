@@ -33,6 +33,8 @@ import { RouteGuardComponent } from './demo/route-guard/route-guard.component';
 import { RxjsComponent } from './demo/rxjs/rxjs.component';
 import { ReduxComponent } from './demo/redux/redux.component';
 import { AdvanceComponent } from './demo/advance/advance.component';
+import { AdvanceChildComponent } from './demo/advance-child/advance-child.component';
+import { AdvanceContentProjectionComponent } from './demo/advance-content-projection/advance-content-projection.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -86,7 +88,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     RouteGuardComponent,
     RxjsComponent,
     ReduxComponent,
-    AdvanceComponent
+    AdvanceComponent,
+    AdvanceChildComponent,
+    AdvanceContentProjectionComponent
   ],
   imports: [
     BrowserModule,

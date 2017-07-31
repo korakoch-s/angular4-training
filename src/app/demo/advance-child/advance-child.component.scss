@@ -1,0 +1,15 @@
+:host {
+    display: block;
+    padding: 20px;
+    background-color: pink;
+}
+
+:host>h3 {
+    background-color: lightgreen;
+    border: solid 1px red;
+}
+
+:host-context(.mytheme) h3 {
+    background-color: black;
+    color: white;
+}
