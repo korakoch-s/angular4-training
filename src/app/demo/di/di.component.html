@@ -1,7 +1,7 @@
 <h3>Backend URL: {{backendUrl}} <small>(from value injection)</small></h3>
 <div class="input-group">
     <div class="input-group-addon">Log msg</div>
-    <input type="text" class="form-control" id="logMsg" placeholder="Message">
+    <input type="text" class="form-control" id="logMsg" placeholder="Message" [(ngModel)]="msg">
 </div>
 
 <button type="button" class="btn btn-default" (click)="logClick()">Record Log</button>
@@ -10,3 +10,6 @@
 <ul>
     <li *ngFor="let item of logMsgs">{{item}}</li>
 </ul>
+
+<button type="button" class="btn btn-primary" (click)="logConsoleClick()">Use Console Log</button>
+<button type="button" class="btn btn-warning" (click)="logDBClick()">Use DB Log</button>

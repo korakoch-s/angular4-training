@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { LogService } from './log.service';
-import { logConsoleFactory } from './log.factory';
+import { logConsoleFactory, logDBFactory } from './log.factory';
 
 @Component({
   selector: 'app-di',
@@ -13,7 +13,7 @@ import { logConsoleFactory } from './log.factory';
 })
 export class DiComponent implements OnInit {
 
-  public logMsg: string[] = [];
+  public logMsgs: string[] = [];
   public msg: string;
 
   constructor( @Inject('API_URL') public backendUrl: string,
@@ -24,7 +24,15 @@ export class DiComponent implements OnInit {
   }
 
   logClick() {
-    this.logMsg.push(this.log.log(this.msg));
+    this.logMsgs.push(this.log.log(this.msg));
     this.msg = '';
+  }
+
+  logConsoleClick() {
+    this.log = new LogService(logConsoleFactory());
+  }
+
+  logDBClick() {
+    this.log = new LogService(logDBFactory());
   }
 }
