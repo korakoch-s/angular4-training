@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpService } from './http.service';
 
 @Component({
   selector: 'app-http',
   templateUrl: './http.component.html',
-  styleUrls: ['./http.component.scss']
+  styleUrls: ['./http.component.scss'],
+  providers: [
+    { provide: 'apiUrl', useValue: 'http://jsonplaceholder.typicode.com/posts' },
+    { provide: HttpService, useClass: HttpService }
+  ]
 })
 export class HttpComponent implements OnInit {
   public datas: Object;
   public data: Object;
   public loading = false;
-  private apiUrl = 'http://jsonplaceholder.typicode.com/posts';
 
-  constructor(private http: Http) { }
+  constructor(private httpSvr: HttpService) { }
 
   ngOnInit() {
   }
@@ -21,9 +24,9 @@ export class HttpComponent implements OnInit {
     this.loading = true;
     this.data = null;
     this.datas = null;
-    this.http.request(this.apiUrl)
+    this.httpSvr.loadData()
       .subscribe((res: Response) => {
-        this.datas = res.json();
+        this.datas = res;
         this.loading = false;
       }, err => {
         console.log('Error: ' + err);
@@ -35,15 +38,9 @@ export class HttpComponent implements OnInit {
     this.loading = true;
     this.data = null;
     this.datas = null;
-    this.http.post(
-      this.apiUrl,
-      JSON.stringify({
-        body: 'bar',
-        title: 'foo',
-        userId: 1
-      }))
+    this.httpSvr.makePost('foo', 'bar')
       .subscribe((res: Response) => {
-        this.data = res.json();
+        this.data = res;
         this.loading = false;
       });
   }
