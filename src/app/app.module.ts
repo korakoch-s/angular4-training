@@ -15,7 +15,6 @@ import { FromNowPipe } from './pipes/from-now.pipe';
 import { ChatNavBarComponent } from './chat-nav-bar/chat-nav-bar.component';
 import { FormsModule } from '@angular/forms';
 import { ChatPageComponent } from './chat-page/chat-page.component';
-import { ReduxCounterComponent } from './redux-counter/redux-counter.component';
 
 
 @NgModule({
@@ -27,8 +26,7 @@ import { ReduxCounterComponent } from './redux-counter/redux-counter.component';
     ChatMessageComponent,
     FromNowPipe,
     ChatNavBarComponent,
-    ChatPageComponent,
-    ReduxCounterComponent
+    ChatPageComponent
   ],
   imports: [
     BrowserModule,
